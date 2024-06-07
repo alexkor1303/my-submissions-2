@@ -66,6 +66,7 @@ app.get("/api/persons/:id", (req, res) => {
 app.delete("/api/persons/:id", (req, res) => {
   const id = Number(req.params.id);
   persons = persons.filter((person) => person.id !== id);
+  ``;
   res.status(204).end();
 });
 
@@ -93,7 +94,7 @@ app.post("/api/persons/", (req, res) => {
   res.json(person);
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log("server running at port 3001");
 });
